@@ -21,6 +21,10 @@ body {
     max-width: 87.5rem;
     margin: auto;
 }
+a {
+    text-decoration: none;
+    color: #b1b1b1;
+}
 img {
     display: block;
     width: 100%;
@@ -30,7 +34,6 @@ ul {
     list-style: none;
 }
 ul li {
-    color: #b1b1b1;
     font-size: 1.25rem;
     margin-left: 1.25rem;
 }
@@ -63,7 +66,7 @@ header {
     display: flex;
     align-items: center;
 }
-.avatar {
+.icon-avatar {
     width: 3.125rem;
     height: 3.125rem;
     border-radius: 50%;
@@ -83,10 +86,54 @@ main {
     ASIDE
 ----------------- */
 aside {
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
     width: 35%;
-    background-color: aqua;
+    background-color: #fff;
 }
-
+.banner {
+    display: flex;
+    padding: .9375rem 1.25rem;
+    height: 5rem;
+    background-color: #8edafc;
+}
+.banner .icon-avatar {
+    position: relative;
+    font-size: 1.375rem;
+    background-color: #fff;
+    text-align: center;
+    line-height: 3.125rem;
+}
+.banner .icon-avatar::after {
+    content: '';
+    position: absolute;
+    width: 2.1875rem;
+    height: .1875rem;
+    border-radius: .3125rem;
+    background-color: #8edafc;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%) rotateZ(45deg);
+    box-shadow: 0 .1875rem 0 0 #FFFFFF;
+}
+.banner .icon-avatar a {
+    color: #8edafc;
+}
+.banner-text .sub-title  a{
+    font-size: .875rem;
+    color: inherit;
+    font-weight: lighter;
+    text-decoration: underline;
+}
+.input {
+    height: 3.125rem;
+    background-color: #fafafa;
+}
+.my-contact {
+    overflow-y: auto;
+    flex-grow: 1;
+}
 /* -----------------
     MAIN-CHAT
 ----------------- */
