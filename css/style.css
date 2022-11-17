@@ -6,3 +6,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* -----------------
+    COMMONS
+----------------- */
+body {
+    padding: 1.5625rem 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #009688 0,#009688 20vh,#d6dbd8 20vh,#d6dbd8 100vh);
+}
+#app {
+    max-width: 80rem;
+    margin: auto;
+}
