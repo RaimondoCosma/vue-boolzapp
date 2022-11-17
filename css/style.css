@@ -16,6 +16,49 @@ body {
     background: linear-gradient(to bottom, #009688 0,#009688 20vh,#d6dbd8 20vh,#d6dbd8 100vh);
 }
 #app {
+    height: 100%;
     max-width: 80rem;
     margin: auto;
+}
+
+/* -----------------
+    HEADER
+----------------- */
+header {
+    height: 4.375rem;
+    background-color: #dadbd5;
+}
+
+/* -----------------
+MAIN
+----------------- */
+main {
+    display: flex;
+    height: calc(100% - 4.375rem);
+}
+
+/* -----------------
+    ASIDE
+----------------- */
+aside {
+    width: 35%;
+    background-color: aqua;
+}
+
+/* -----------------
+    MAIN-CHAT
+----------------- */
+.main-chat {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.col-messages {
+    flex-grow: 1;
+    background-color: #960057;
+
+}
+.col-text {
+    height: 4.375rem;
+    background-color: bisque;
 }
