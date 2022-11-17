@@ -37,6 +37,10 @@ ul li {
     font-size: 1.25rem;
     margin-left: 1.25rem;
 }
+.user, .contact {
+    display: flex;
+    align-items: center;
+}
 .access-date {
     font-size: .875rem;
     font-weight: lighter
@@ -62,16 +66,16 @@ header {
 .col-other-user {
     flex-grow: 1;
 }
-.user {
-    display: flex;
-    align-items: center;
-}
-.icon-avatar {
+.icon-avatar, .contact-icon {
     width: 3.125rem;
     height: 3.125rem;
     border-radius: 50%;
     overflow: hidden;
     margin-right: .9375rem;
+}
+.contact-icon {
+    width: 3.75rem;
+    height: 3.75rem;
 }
 
 /* -----------------
@@ -126,13 +130,44 @@ aside {
     font-weight: lighter;
     text-decoration: underline;
 }
+
 .input {
     height: 3.125rem;
+    padding: .3125rem;
     background-color: #fafafa;
 }
+.box-input {
+    display: flex;
+    height: 100%;
+    border: 1px solid #d6d6d6;
+}
+.input button {
+    color: #b1b1b1;
+    width: 20%;
+    background-color: #fff;
+    border: none;
+    border-right: 1px solid #d6d6d6;
+}
+.input input {
+    flex-grow: 1;
+    padding: 0 .625rem;
+    border: none;
+}
+
 .my-contact {
     overflow-y: auto;
     flex-grow: 1;
+}
+.my-contact ul {
+    display: flex;
+    flex-direction: column;
+}
+.my-contact li {
+    padding: .3125rem 0;
+}
+.contact .last-message {
+    font-size: .875rem;
+    font-weight: lighter;
 }
 /* -----------------
     MAIN-CHAT

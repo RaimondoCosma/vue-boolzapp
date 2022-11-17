@@ -62,6 +62,7 @@
         <main>
             <!-- Aside -->
             <aside>
+                <!-- Banner -->
                 <div class="banner">
                     <div class="icon-avatar">
                         <a href="#"><i class="fa-solid fa-bell"></i></a>
@@ -71,8 +72,32 @@
                         <div class="sub-title"><a href="#">Attiva notifiche desktop</a></div>
                     </div>
                 </div>
-                <div class="input"></div>
-                <div class="my-contact"></div>
+                <!-- /Banner -->
+                <!-- Input -->
+                <div class="input">
+                    <div class="box-input">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div>
+                <!-- /Input -->
+                <!-- My-contact -->
+                <div class="my-contact">
+                    <ul>
+                        <li v-for="contact in contacts">
+                            <div class="contact">
+                                <div class="contact-icon">
+                                    <a href="#"><img :src="`img/avatar${contact.avatar}.jpg`" alt="my-avatar"></a>
+                                </div>
+                                <div class="contact-user">
+                                    <div class="contact-name">{{contact.name}}</div>
+                                    <div class="last-message">{{contact.messages[0].message}}</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /My-contact -->
             </aside>
             <!-- /Aside -->
             <div class="main-chat">
