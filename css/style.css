@@ -179,10 +179,10 @@ aside {
 }
 .col-messages {
     flex-grow: 1;
-    background-color: #960057;
+    background-image: url('../img/mine.jpg');
 
 }
 .col-text {
     height: 4.375rem;
-    background-color: bisque;
+    background-color: #f3eeea;
 }
