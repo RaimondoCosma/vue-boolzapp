@@ -5,6 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzapp</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- /Font Awesome -->
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet"> 
+    <!-- /Google fonts -->
     <!-- script vuejs -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- /script vuejs -->
@@ -14,8 +22,40 @@
     <div id="app">
         <!-- Header -->
         <header>
-            <div class="col-my-user"></div>
-            <div class="col-other-user"></div>
+            <div class="col-my-user">
+                <div class="user">
+                    <div class="avatar">
+                        <a href="#"><img src="img/avatar_io.jpg" alt="my-avatar"></a>
+                    </div>
+                    <div class="name">Sofia</div>
+                </div>
+                <div class="icons-nav">
+                    <ul>
+                        <li><i class="fa-solid fa-circle-notch"></i></li>
+                        <li><i class="fa-solid fa-message"></i></li>
+                        <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-other-user">
+                <div class="user">
+                    <div class="avatar">
+                        <a href="#"><img src="img/avatar_1.jpg" alt="my-avatar"></a>
+                    </div>
+                    <div class="name">
+                        <div class="user-name">Michele</div>
+                        <div class="access-date">Ultimo accesso oggi alle 12:00</div>
+                    </div>
+                </div>
+                <div class="icons-nav">
+                    <ul>
+                        <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                        <li><i class="fa-solid fa-paperclip"></i></li>
+                        <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                    </ul>
+                </div>
+            </div>
         </header>
         <!-- /Header -->
         <main>
