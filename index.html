@@ -41,10 +41,10 @@
             <div class="col-other-user">
                 <div class="user">
                     <div class="icon-avatar">
-                        <a href="#"><img src="img/avatar_1.jpg" alt="my-avatar"></a>
+                        <a href="#"><img :src="`img/avatar_${activeUser+1}.jpg`" alt="avatar"></a>
                     </div>
                     <div class="name">
-                        <div class="user-name">Michele</div>
+                        <div class="user-name">{{contacts[activeUser].name}}</div>
                         <div class="access-date">Ultimo accesso oggi alle 12:00</div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                 <!-- My-contact -->
                 <div class="my-contact">
                     <ul>
-                        <li v-for="contact in contacts">
+                        <li v-for="(contact, index) in contacts" @click="changeUser(index)" :class="{active: index === activeUser}">
                             <div class="contact">
                                 <div class="contact-icon">
                                     <a href="#"><img :src="`img/avatar${contact.avatar}.jpg`" alt="my-avatar"></a>
@@ -101,8 +101,18 @@
             </aside>
             <!-- /Aside -->
             <div class="main-chat">
-                <div class="col-messages"></div>
-                <div class="col-text"></div>
+                <div class="col-messages">
+                    <div  v-for="message in contacts[activeUser].messages" :class="message.status">
+                        <span>{{message.message}}</span>
+                        <small>{{new Date(message.date).toLocaleTimeString('it-IT', { hour: 'numeric', minute: 'numeric' })}}</small>
+                    </div>
+                    <!-- <div class="received">Ricevuto</div> -->
+                </div>
+                <div class="col-text">
+                    <div class="smile"><a href="#"><i class="fa-regular fa-face-smile"></i></a></div>
+                    <div class="chat-text"><input type="text" placeholder="Scrivi messaggio"></div>
+                    <div class="microphone"><a href="#"><i class="fa-solid fa-microphone"></i></a></div>
+                </div>
             </div>
         </main>
         <!-- /Main -->
