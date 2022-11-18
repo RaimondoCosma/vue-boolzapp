@@ -255,3 +255,32 @@ aside {
     border-radius: .3125rem;
     border: .0625rem solid #d6d6d6;
 }
+
+/* -----------------
+    CONTEXT-MENU
+----------------- */
+#context-menu {
+    overflow-y: hidden;
+    position: fixed;
+    background-color: #fff;
+    border-radius: .3125rem;
+    z-index: 100;
+    transition: height 0.2s linear;
+}
+#context-menu ul {
+    display: block;
+}
+#context-menu li {
+    margin: 0;
+    padding: .4375rem .625rem;
+}
+#context-menu li:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#context-menu a {
+    font-size: .875rem;
+    color: black;
+}
+#context-menu i {
+    margin-right: .3125rem;
+}

@@ -27,7 +27,7 @@
 <body>
     <div id="app">
         <!-- Header -->
-        <header>
+        <header @click="hideTheContextMenu">
             <div class="col-my-user">
                 <div class="user">
                     <div class="icon-avatar">
@@ -65,7 +65,7 @@
         </header>
         <!-- /Header -->
         <!-- Main -->
-        <main>
+        <main @click="hideTheContextMenu">
             <!-- Aside -->
             <aside>
                 <!-- Banner -->
@@ -93,7 +93,7 @@
                         <li v-for="(contact, index) in contacts" @click="changeUser(index)" :class="{active: index === activeUser}" v-show="contact.visible">
                             <div class="contact">
                                 <div class="contact-icon">
-                                    <a href="#"><img :src="`img/avatar${contact.avatar}.jpg`" alt="contact.name"></a>
+                                    <a href="#"><img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name"></a>
                                 </div>
                                 <div class="contact-user">
                                     <div class="contact-name">{{contact.name}}</div>
@@ -107,13 +107,13 @@
                 <!-- /My-contact -->
             </aside>
             <!-- /Aside -->
+            <!-- Main chat with contacts -->
             <div class="main-chat">
                 <div class="col-messages">
-                    <div v-for="message in contacts[activeUser].messages" :class="message.status">
+                    <div v-for="(message, index) in contacts[activeUser].messages" :class="message.status" @contextmenu.prevent="showTheContextMenu" @contextmenu="takeIndexMessage(index)">
                         <span>{{message.message}}</span>
                         <small>{{messageTime(message.date)}}</small>
                     </div>
-                    <!-- <div class="received">Ricevuto</div> -->
                 </div>
                 <div class="col-text">
                     <div class="smile"><a href="#"><i class="fa-regular fa-face-smile"></i></a></div>
@@ -121,8 +121,17 @@
                     <div class="microphone"><a href="#"><i class="fa-solid fa-microphone"></i></a></div>
                 </div>
             </div>
+            <!-- /Main chat with contacts -->
         </main>
         <!-- /Main -->
+        <!-- Context menu -->
+        <div id="context-menu" :style="`top: ${styleContextMenu.top}; left: ${styleContextMenu.left}; opacity: ${styleContextMenu.opacity}; height: ${styleContextMenu.height}`">
+            <ul>
+                <li><a href=""><i class="fa-solid fa-circle-info"></i>Message Info</a></li>
+                <li @click="deleteMessage(index)"><a href="#"><i class="fa-solid fa-trash-can"></i>Delete Message</a></li>
+            </ul>
+        </div>
+        <!-- /Context menu -->
     </div>
     <script src="js/main.js"></script>
 </body>

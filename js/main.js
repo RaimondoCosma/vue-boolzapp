@@ -4,6 +4,13 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            styleContextMenu: {
+                top: 0,
+                left: 0,
+                opacity: 0,
+                height: 0,
+                messageClicked: 0
+            },
             activeUser: 0,
             searchingContact: '',
             myMessage: '',
@@ -209,6 +216,26 @@ createApp({
         },
         messageTime(data) {
             return data.substring(11, 16);
+        },
+        showTheContextMenu(e){
+            this.hideTheContextMenu();
+            this.styleContextMenu.top = `${e.clientY}px`;
+            this.styleContextMenu.left = `${e.clientX}px`;
+            this.styleContextMenu.opacity = 1;
+            this.styleContextMenu.height = `81px`;
+        },
+        hideTheContextMenu(e){
+            this.styleContextMenu.top = 0;
+            this.styleContextMenu.left = 0;
+            this.styleContextMenu.opacity = 0;
+            this.styleContextMenu.height = 0;
+        },
+        takeIndexMessage(index){
+            this.styleContextMenu.messageClicked = index;
+        },
+        deleteMessage(){
+            this.contacts[this.activeUser].messages.splice(this.styleContextMenu.messageClicked, 1);
+            this.hideTheContextMenu();
         }
     },
 }).mount('#app')
