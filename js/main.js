@@ -6,6 +6,7 @@ createApp({
         return {
             activeUser: 0,
             searchingContact: '',
+            myMessage: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -184,6 +185,27 @@ createApp({
                     contact.visible = false;
                 }
             });
+        },
+        sendMessage(){
+            const myNewObjMessage = {
+                date: moment().locale('it').format('l '+'LTS'),
+                message: this.myMessage,
+                status: 'sent'
+            }
+            if ( this.myMessage !== '' ){
+                this.contacts[this.activeUser].messages.push(myNewObjMessage);
+            } else {
+                return this.sendMessage;
+            }
+            this.myMessage = '';
+            setTimeout(() => {
+                const contactNewObjMessage = {
+                    date: moment().locale('it').format('l '+'LTS'),
+                    message: 'Forse',
+                    status: 'received'
+                };
+                this.contacts[this.activeUser].messages.push(contactNewObjMessage);
+            }, 2000);
         },
         messageTime(data) {
             return data.substring(11, 16);

@@ -117,7 +117,7 @@
                 </div>
                 <div class="col-text">
                     <div class="smile"><a href="#"><i class="fa-regular fa-face-smile"></i></a></div>
-                    <div class="chat-text"><input type="text" placeholder="Scrivi messaggio"></div>
+                    <div class="chat-text"><input type="text" placeholder="Scrivi messaggio" v-model="myMessage" @keyup.enter="sendMessage"></div>
                     <div class="microphone"><a href="#"><i class="fa-solid fa-microphone"></i></a></div>
                 </div>
             </div>
