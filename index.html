@@ -13,6 +13,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet"> 
     <!-- /Google fonts -->
+    <!-- Script Momentjs -->
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <!-- /Script Momentjs -->
+    <!-- Script moment-with-locales -->
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <!-- /Script moment-with-locales -->
     <!-- script vuejs -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- /script vuejs -->
@@ -105,7 +111,7 @@
                 <div class="col-messages">
                     <div  v-for="message in contacts[activeUser].messages" :class="message.status">
                         <span>{{message.message}}</span>
-                        <small>{{new Date(message.date).toLocaleTimeString('it-IT', { hour: 'numeric', minute: 'numeric' })}}</small>
+                        <small>{{messageTime(message.date)}}</small>
                     </div>
                     <!-- <div class="received">Ricevuto</div> -->
                 </div>

@@ -184,6 +184,9 @@ createApp({
                     contact.visible = false;
                 }
             });
+        },
+        messageTime(data) {
+            return data.substring(11, 16);
         }
     },
 }).mount('#app')
