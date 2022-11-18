@@ -4,14 +4,14 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            info: false,
             styleContextMenu: {
                 top: 0,
                 left: 0,
                 opacity: 0,
                 height: 0,
-                messageClicked: 0
             },
+            info: false,
+            messageClicked: 0,
             activeUser: 0,
             searchingContact: '',
             myMessage: '',
@@ -232,10 +232,10 @@ createApp({
             this.styleContextMenu.height = 0;
         },
         takeIndexMessage(index){
-            this.styleContextMenu.messageClicked = index;
+            this.messageClicked = index;
         },
         deleteMessage(){
-            this.contacts[this.activeUser].messages.splice(this.styleContextMenu.messageClicked, 1);
+            this.contacts[this.activeUser].messages.splice(this.messageClicked, 1);
             this.hideTheContextMenu();
         },
         showInfo(){
