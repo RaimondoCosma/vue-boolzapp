@@ -4,6 +4,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            info: false,
             styleContextMenu: {
                 top: 0,
                 left: 0,
@@ -222,7 +223,7 @@ createApp({
             this.styleContextMenu.top = `${e.clientY}px`;
             this.styleContextMenu.left = `${e.clientX}px`;
             this.styleContextMenu.opacity = 1;
-            this.styleContextMenu.height = `81px`;
+            this.styleContextMenu.height = `76px`;
         },
         hideTheContextMenu(e){
             this.styleContextMenu.top = 0;
@@ -236,6 +237,13 @@ createApp({
         deleteMessage(){
             this.contacts[this.activeUser].messages.splice(this.styleContextMenu.messageClicked, 1);
             this.hideTheContextMenu();
+        },
+        showInfo(){
+            this.info = true;
+            this.hideTheContextMenu();
+        },
+        closeInfo(){
+            this.info = false;
         }
     },
 }).mount('#app')

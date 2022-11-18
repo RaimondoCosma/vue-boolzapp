@@ -17,6 +17,7 @@ body {
     background: linear-gradient(to bottom, #009688 0 20vh,#d6dbd8 20vh 100vh);
 }
 #app {
+    position: relative;
     height: 100%;
     max-width: 87.5rem;
     margin: auto;
@@ -205,6 +206,7 @@ aside {
     flex-grow: 1;
     background-image: url('../img/mine.jpg');
     padding: 3.125rem 5.625rem 0;
+    cursor: default;
 
 }
 .sent, .received {
@@ -283,4 +285,27 @@ aside {
 }
 #context-menu i {
     margin-right: .3125rem;
+}
+
+/* -----------------
+    INFO-MESSAGE
+----------------- */
+.box-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 5px 5px 10px 0px #000000;   
+    padding: .625rem;
+    border-radius: .625rem;
+}
+.close-window {
+    text-align: right;
+}
+.close-window i {
+    cursor: pointer;
+}
+.box-message .info {
+    padding: .625rem 1.25rem 1.25rem;
 }

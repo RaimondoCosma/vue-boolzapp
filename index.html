@@ -127,11 +127,26 @@
         <!-- Context menu -->
         <div id="context-menu" :style="`top: ${styleContextMenu.top}; left: ${styleContextMenu.left}; opacity: ${styleContextMenu.opacity}; height: ${styleContextMenu.height}`">
             <ul>
-                <li><a href=""><i class="fa-solid fa-circle-info"></i>Message Info</a></li>
+                <li @click.prevent="showInfo"><a href="#"><i class="fa-solid fa-circle-info"></i>Message Info</a></li>
                 <li @click="deleteMessage(index)"><a href="#"><i class="fa-solid fa-trash-can"></i>Delete Message</a></li>
             </ul>
         </div>
         <!-- /Context menu -->
+        <!-- Info Message -->
+        <!-- <div class="info-message" v-for="(message, index) in contacts[activeUser].messages" v-if="info === true">
+            <div class="data">{{message[styleContextMenu.messageClicked].data}}</div>
+            <div class="message">{{message[styleContextMenu.messageClicked].message}}</div>
+            <div class="stato">{{message[styleContextMenu.messageClicked].status}}</div>
+        </div> -->
+        <div class="box-message" v-if="info === true">
+            <div class="close-window"><i class="fa-solid fa-xmark" @click="closeInfo"></i></div>
+            <div class="info">
+                <div class="data">Data e ora ricezione messaggio: {{contacts[activeUser].messages[styleContextMenu.messageClicked].date}}</div>
+                <div class="message">Testo: {{contacts[activeUser].messages[styleContextMenu.messageClicked].message}}</div>
+                <div class="stato">Stato: {{contacts[activeUser].messages[styleContextMenu.messageClicked].status}}</div>
+            </div>
+        </div>
+        <!-- /Info Message -->
     </div>
     <script src="js/main.js"></script>
 </body>
