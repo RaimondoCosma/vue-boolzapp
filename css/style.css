@@ -14,7 +14,7 @@ body {
     font-family: 'Lato', sans-serif;
     padding: 1.5625rem 0;
     height: 100vh;
-    background: linear-gradient(to bottom, #009688 0,#009688 20vh,#d6dbd8 20vh,#d6dbd8 100vh);
+    background: linear-gradient(to bottom, #009688 0 20vh,#d6dbd8 20vh 100vh);
 }
 #app {
     height: 100%;
@@ -151,6 +151,7 @@ aside {
     background-color: #fff;
     border: none;
     border-right: 1px solid #d6d6d6;
+    cursor: pointer;
 }
 .input input {
     flex-grow: 1;
@@ -172,7 +173,20 @@ aside {
     margin: 0;
     border-top: .0625rem solid #e9ebeb;
 }
+.my-contact li:hover:not(li.active) {
+    background-color: #fafafa;
+}
+.contact {
+    position: relative;
+}
 .contact .last-message {
+    font-size: .875rem;
+    font-weight: lighter;
+}
+.contact-user small{
+    position: absolute;
+    top: .1875rem;
+    right: .1875rem;
     font-size: .875rem;
     font-weight: lighter;
 }
@@ -197,7 +211,7 @@ aside {
     position: relative;
     font-size: .875rem;
     margin-bottom: .625rem;
-    width: 18.75rem;
+    max-width: 18.75rem;
     padding: 1.25rem;
     border-radius: .9375rem;
 }

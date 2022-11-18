@@ -5,6 +5,7 @@ createApp({
     data() {
         return {
             activeUser: 0,
+            searchingContact: '',
             contacts: [
                 {
                     name: 'Michele',
@@ -174,5 +175,15 @@ createApp({
         changeUser(i) {
             this.activeUser = i;
         },
+        searchContact() {
+            this.contacts.forEach(contact => {
+                const userName = contact.name.toLowerCase();
+                if ( userName.includes(this.searchingContact) ){
+                    contact.visible = true;
+                } else {
+                    contact.visible = false;
+                }
+            });
+        }
     },
 }).mount('#app')

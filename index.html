@@ -73,25 +73,26 @@
                     </div>
                 </div>
                 <!-- /Banner -->
-                <!-- Input -->
+                <!-- Search bar Input text-->
                 <div class="input">
-                    <div class="box-input">
-                        <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
-                    </div>
+                    <form class="box-input">
+                        <button type="submit" @click.prevent="searchContact"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" @keyup="searchContact" v-model="searchingContact">
+                    </form>
                 </div>
-                <!-- /Input -->
+                <!-- /Search bar Input text-->
                 <!-- My-contact -->
                 <div class="my-contact">
                     <ul>
-                        <li v-for="(contact, index) in contacts" @click="changeUser(index)" :class="{active: index === activeUser}">
+                        <li v-for="(contact, index) in contacts" @click="changeUser(index)" :class="{active: index === activeUser}" v-show="contact.visible">
                             <div class="contact">
                                 <div class="contact-icon">
-                                    <a href="#"><img :src="`img/avatar${contact.avatar}.jpg`" alt="my-avatar"></a>
+                                    <a href="#"><img :src="`img/avatar${contact.avatar}.jpg`" alt="contact.name"></a>
                                 </div>
                                 <div class="contact-user">
                                     <div class="contact-name">{{contact.name}}</div>
-                                    <div class="last-message">{{contact.messages[0].message}}</div>
+                                    <div class="last-message">{{contact.messages[contact.messages.length-1].message}}</div>
+                                    <small>12:00</small>
                                 </div>
                             </div>
                         </li>
