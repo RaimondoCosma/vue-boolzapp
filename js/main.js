@@ -206,6 +206,10 @@ createApp({
                 }
             });
         },
+        // Svuota il campo dei messaggi
+        emptyMessage(){
+            this.myMessage = ''
+        },
         // Funzione per mandare messaggi e riceverne uno dopo 2 secondi
         sendMessage(){
             const myNewObjMessage = {
@@ -218,7 +222,7 @@ createApp({
             } else {
                 return this.sendMessage;
             }
-            this.myMessage = '';
+            this.emptyMessage();
             if ( this.chuck === true ){
                 setTimeout(() => {
                     const contactNewObjMessage = {

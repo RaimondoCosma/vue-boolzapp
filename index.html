@@ -92,7 +92,7 @@
                 <!-- /Search bar Input text-->
                 <!-- My-contact -->
                 <div class="my-contact">
-                    <ul>
+                    <ul @click="emptyMessage">
                         <li v-for="(contact, index) in contacts" @click="changeUser(index)" :class="{active: index === activeUser}" v-show="contact.visible">
                             <div class="contact">
                                 <div class="contact-icon">
