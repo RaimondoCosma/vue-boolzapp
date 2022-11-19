@@ -235,7 +235,7 @@ createApp({
             } else {
                 setTimeout(() => {
                     const contactNewObjMessage = {
-                        date: moment().locale('it').format('l '+'LTS'),
+                        date: moment().format('l '+'LTS'),
                         message: 'Ok',
                         status: 'received'
                     };
@@ -289,22 +289,14 @@ createApp({
         getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min + 1) ) + min;
         },
-        scrollToBottom(timedelay=0) {
-            let scrollId;
-            let height = 0;
-            let minScrollHeight = 100;
-            scrollId = setInterval(function () {
-                if (height <= document.body.scrollHeight) {
-                    window.scrollBy(0, minScrollHeight);
-                }
-                else {
-                    clearInterval(scrollId);
-                }
-                height += minScrollHeight;
-            }, timedelay);           
+        // Funzione per il tempo relativo
+        formatData(data) {
+            return moment(data, "DD/MM/YYYY, hh:mm:ss").fromNow();
         }
     },
     created() {
+        // Formatto l'ora nel formato italiano
+        moment.locale('it');
         // Uso axios per slavare 50 risposte diverse di Chuck in un array
         for ( let i = 0; i <= 50; i++ ){
             axios.get('https://api.chucknorris.io/jokes/random')
@@ -314,3 +306,6 @@ createApp({
         }
     }
 }).mount('#app')
+
+const app = document.querySelector('.col-messages');
+console.log(app)

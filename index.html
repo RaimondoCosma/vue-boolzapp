@@ -54,7 +54,7 @@
                     </div>
                     <div class="name">
                         <div class="user-name">{{contacts[activeUser].name}}</div>
-                        <div class="access-date">Ultimo accesso oggi alle 12:00</div>
+                        <div class="access-date">Ultima volta online: {{formatData(contacts[activeUser].messages[contacts[activeUser].messages.length-1].date)}}</div>
                     </div>
                 </div>
                 <div class="icons-nav">
@@ -111,7 +111,7 @@
             </aside>
             <!-- /Aside -->
             <!-- Main chat with contacts -->
-            <div class="main-chat" @scroll="scrollToBottom">
+            <div class="main-chat">
                 <div class="col-messages">
                     <div v-for="(message, index) in contacts[activeUser].messages" :class="message.status" @contextmenu.prevent="showTheContextMenu" @contextmenu="takeIndexMessage(index)">
                         <span>{{message.message}}</span>
