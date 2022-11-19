@@ -139,9 +139,9 @@
         <div class="box-message" v-if="info === true">
             <div class="close-window"><i class="fa-solid fa-xmark" @click="closeInfo"></i></div>
             <div class="info">
-                <div class="data">Data e ora ricezione messaggio: {{contacts[activeUser].messages[messageClicked].date}}</div>
-                <div class="message">Testo: {{contacts[activeUser].messages[messageClicked].message}}</div>
-                <div class="stato">Stato: {{contacts[activeUser].messages[messageClicked].status}}</div>
+                <div class="data">Data e ora ricezione messaggio: <span class="fw-bold">{{contacts[activeUser].messages[messageClicked].date}}</span></div>
+                <div class="message">Testo: <span class="fw-bold">{{contacts[activeUser].messages[messageClicked].message}}</span></div>
+                <div class="stato">Stato: <span class="fw-bold">{{contacts[activeUser].messages[messageClicked].status}}</span></div>
             </div>
         </div>
         <!-- /Info Message -->
