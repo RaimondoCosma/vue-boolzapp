@@ -4,17 +4,24 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            // Variabile importante relativa all'indice di ogni singolo contatto
+            activeUser: 0,
+            // Variabile utile per comparare la stringa con i nomi utenti per effettuare una ricerca
+            searchingContact: '',
+            // Variabile importante relativa all'indice di ogni singolo messaggio di un contatto
+            messageClicked: 0,
+            // Variabile di inizializzazione del mio messaggio da inviare nella chat
+            myMessage: '',
+            // Oggetto in cui salvo come proprietà valori utili al contextmenu per mostrarlo o nasconderlo
             styleContextMenu: {
                 top: 0,
                 left: 0,
                 opacity: 0,
                 height: 0,
             },
+            // Variabile di appoggio per nascondere o mostrare le info dei messaggi
             info: false,
-            messageClicked: 0,
-            activeUser: 0,
-            searchingContact: '',
-            myMessage: '',
+            // Arrey di oggetti contenenti dati degli utenti
             contacts: [
                 {
                     name: 'Michele',
@@ -181,9 +188,11 @@ createApp({
         }
     },
     methods: {
+        // Funzione utile a cambiare contatto al click
         changeUser(i) {
             this.activeUser = i;
         },
+        // Funzione per ricercare contatti nella barra di ricerca
         searchContact() {
             this.contacts.forEach(contact => {
                 const userName = contact.name.toLowerCase();
@@ -194,6 +203,7 @@ createApp({
                 }
             });
         },
+        // Funzione per mandare messaggi e riceverne uno dopo 2 secondi
         sendMessage(){
             const myNewObjMessage = {
                 date: moment().locale('it').format('l '+'LTS'),
@@ -215,35 +225,46 @@ createApp({
                 this.contacts[this.activeUser].messages.push(contactNewObjMessage);
             }, 2000);
         },
+        // Manipola la stringa della data e ora per estrapolare solo ora e minuti
         messageTime(data) {
             return data.substring(11, 16);
         },
+        // Funzione che mostra il contextmenu
         showTheContextMenu(e){
             this.hideTheContextMenu();
+            this.closeInfo();
             this.styleContextMenu.top = `${e.clientY}px`;
             this.styleContextMenu.left = `${e.clientX}px`;
             this.styleContextMenu.opacity = 1;
             this.styleContextMenu.height = `76px`;
         },
+        // Funzione che nasconde il contextmenu
         hideTheContextMenu(e){
             this.styleContextMenu.top = 0;
             this.styleContextMenu.left = 0;
             this.styleContextMenu.opacity = 0;
             this.styleContextMenu.height = 0;
         },
+        // Funzione utile a prelevare l'indice di ogni messaggio
         takeIndexMessage(index){
             this.messageClicked = index;
         },
+        // Funzione per cancellare i messaggi
         deleteMessage(){
             this.contacts[this.activeUser].messages.splice(this.messageClicked, 1);
             this.hideTheContextMenu();
         },
+        // Funzione per mostrare info messaggi
         showInfo(){
             this.info = true;
             this.hideTheContextMenu();
         },
+        // Funzione per chiudere info messaggi
         closeInfo(){
             this.info = false;
         }
     },
+    created() {
+        const result = axios.get('https://api.chucknorris.io/jokes/random');
+    }
 }).mount('#app')

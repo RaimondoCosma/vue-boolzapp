@@ -22,12 +22,15 @@
     <!-- script vuejs -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- /script vuejs -->
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <!-- /Axios -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="app">
         <!-- Header -->
-        <header @click="hideTheContextMenu">
+        <header @click="[hideTheContextMenu, closeInfo]">
             <div class="col-my-user">
                 <div class="user">
                     <div class="icon-avatar">
@@ -65,7 +68,7 @@
         </header>
         <!-- /Header -->
         <!-- Main -->
-        <main @click="hideTheContextMenu">
+        <main @click="[hideTheContextMenu, closeInfo]">
             <!-- Aside -->
             <aside>
                 <!-- Banner -->
@@ -133,11 +136,6 @@
         </div>
         <!-- /Context menu -->
         <!-- Info Message -->
-        <!-- <div class="info-message" v-for="(message, index) in contacts[activeUser].messages" v-if="info === true">
-            <div class="data">{{message[styleContextMenu.messageClicked].data}}</div>
-            <div class="message">{{message[styleContextMenu.messageClicked].message}}</div>
-            <div class="stato">{{message[styleContextMenu.messageClicked].status}}</div>
-        </div> -->
         <div class="box-message" v-if="info === true">
             <div class="close-window"><i class="fa-solid fa-xmark" @click="closeInfo"></i></div>
             <div class="info">
