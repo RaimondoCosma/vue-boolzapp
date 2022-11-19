@@ -22,6 +22,7 @@ createApp({
             // Variabile di appoggio per nascondere o mostrare le info dei messaggi
             info: false,
             // Array che contiene la risposta dell'API di chuck
+            chuck: false,
             ushiroMawashiGeri: [],
             // Array di oggetti contenenti dati degli utenti
             contacts: [
@@ -218,14 +219,29 @@ createApp({
                 return this.sendMessage;
             }
             this.myMessage = '';
-            setTimeout(() => {
-                const contactNewObjMessage = {
-                    date: moment().locale('it').format('l '+'LTS'),
-                    message: this.ushiroMawashiGeri[this.getRndInteger(0, this.ushiroMawashiGeri.length - 1)],
-                    status: 'received'
-                };
-                this.contacts[this.activeUser].messages.push(contactNewObjMessage);
-            }, 2000);
+            if ( this.chuck === true ){
+                setTimeout(() => {
+                    const contactNewObjMessage = {
+                        date: moment().locale('it').format('l '+'LTS'),
+                        message: this.ushiroMawashiGeri[this.getRndInteger(0, this.ushiroMawashiGeri.length - 1)],
+                        status: 'received'
+                    };
+                    this.contacts[this.activeUser].messages.push(contactNewObjMessage);
+                }, 2000);
+            } else {
+                setTimeout(() => {
+                    const contactNewObjMessage = {
+                        date: moment().locale('it').format('l '+'LTS'),
+                        message: 'Ok',
+                        status: 'received'
+                    };
+                    this.contacts[this.activeUser].messages.push(contactNewObjMessage);
+                }, 2000);
+            }
+        },
+        // Funzione per mostrare chat con chuck norris
+        chuckActive(){
+            this.chuck = !this.chuck;
         },
         // Manipola la stringa della data e ora per estrapolare solo ora e minuti
         messageTime(data) {
@@ -268,6 +284,20 @@ createApp({
         // Funzione che genera numeri random
         getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min + 1) ) + min;
+        },
+        scrollToBottom(timedelay=0) {
+            let scrollId;
+            let height = 0;
+            let minScrollHeight = 100;
+            scrollId = setInterval(function () {
+                if (height <= document.body.scrollHeight) {
+                    window.scrollBy(0, minScrollHeight);
+                }
+                else {
+                    clearInterval(scrollId);
+                }
+                height += minScrollHeight;
+            }, timedelay);           
         }
     },
     created() {

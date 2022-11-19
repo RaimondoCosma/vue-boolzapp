@@ -208,9 +208,8 @@ aside {
     flex-direction: column;
     flex-grow: 1;
     background-image: url('../img/mine.jpg');
-    padding: 3.125rem 5.625rem 0;
+    padding: 3.125rem 5.625rem;
     cursor: default;
-
 }
 .sent, .received {
     position: relative;
@@ -235,10 +234,29 @@ aside {
     right: .3125rem;
 }
 .col-text {
+    position: relative;
     display: flex;
     align-items: center;
     height: 4.375rem;
     background-color: #f3eeea;
+}
+.col-text .test-chuck {
+    text-align: center;
+    position: absolute;
+    color: black;
+    left: .3125rem;
+    bottom: 4.4375rem;
+    padding: .3125rem .625rem;
+    border-radius: .625rem .625rem 0 0;
+    width: auto;
+    background-color: #8edafc;
+    cursor: pointer;
+    box-shadow: 3px -1px 2px 0px #000;
+}
+.chat-active {
+    transform: scale(0.9) translateY(.125rem);
+    background-color: #0fb3ff !important;
+    font-weight: bold;
 }
 .smile, .microphone {
     text-align: center;
