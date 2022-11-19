@@ -1,0 +1,32 @@
+/* -----------------
+    HEADER
+----------------- */
+header {
+    display: flex;
+    height: 4.375rem;
+    background-color: var(--main-color-normal);
+}
+.col-my-user, .col-other-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.25rem 0 .9375rem;
+}
+.col-my-user {
+    width: 35%;  
+    border-right: .125rem solid var(--main-color-strong);  
+}
+.col-other-user {
+    flex-grow: 1;
+}
+.icon-avatar, .contact-icon {
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: .9375rem;
+}
+.contact-icon {
+    min-width: 3.75rem;
+    min-height: 3.75rem;
+}

@@ -292,7 +292,7 @@ createApp({
         // Funzione per il tempo relativo
         formatData(data) {
             return moment(data, "DD/MM/YYYY, hh:mm:ss").fromNow();
-        }
+        },
     },
     created() {
         // Formatto l'ora nel formato italiano
@@ -308,4 +308,3 @@ createApp({
 }).mount('#app')
 
 const app = document.querySelector('.col-messages');
-console.log(app)

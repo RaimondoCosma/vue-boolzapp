@@ -1,0 +1,22 @@
+/* -----------------
+    INFO-MESSAGE
+----------------- */
+.box-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--lighter-color);
+    box-shadow: 5px 5px 10px 0px var(--main-color-strong);   
+    padding: .625rem;
+    border-radius: .625rem;
+}
+.close-window {
+    text-align: right;
+}
+.close-window i {
+    cursor: pointer;
+}
+.box-message .info {
+    padding: .625rem 1.25rem 1.25rem;
+}

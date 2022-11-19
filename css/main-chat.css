@@ -1,0 +1,86 @@
+/* -----------------
+    MAIN-CHAT
+----------------- */
+.main-chat {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.col-messages {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-image: url('../img/mine.jpg');
+    padding: 3.125rem 5.625rem;
+    cursor: default;
+}
+.sent, .received {
+    position: relative;
+    font-size: .875rem;
+    margin-bottom: .625rem;
+    max-width: 18.75rem;
+    padding: 1.25rem;
+    border-radius: .9375rem;
+}
+.received {
+    background-color: var(--lighter-color);
+    align-self: flex-start;
+}
+.sent {
+    background-color: var(--color-sent);
+    align-self: flex-end;
+}
+.col-messages small {
+    color: var(--main-color-strong);
+    position: absolute;
+    bottom: .125rem;
+    right: .3125rem;
+}
+.col-text {
+    display: flex;
+    align-items: center;
+    height: 4.375rem;
+    background-color: var(--main-color-normal);
+    z-index: 100;
+}
+.main-chat .test-chuck {
+    position: absolute;
+    text-align: center;
+    color: var(--stronger-color);
+    left: .3125rem;
+    bottom: 4.3125rem;
+    padding: .3125rem .625rem;
+    border-radius: .625rem .625rem 0 0;
+    width: auto;
+    background-color: var(--banner-color);
+    cursor: pointer;
+    box-shadow: .125rem -0.0625rem .125rem 0 var(--stronger-color);
+    transition: transform 0.4s ease-out;
+}
+.chat-active {
+    transform: scale(0.9) translateY(.125rem);
+    background-color: var(--banner-active-color) !important;
+    font-weight: bold;
+}
+.smile, .microphone {
+    text-align: center;
+    font-size: 1.375rem;
+    width: 15%;
+}
+.smile a, .microphone a {
+    color: var(--icon-color);
+}
+.chat-text {
+    flex-grow: 1;
+    height: 100%;
+    padding: .625rem 0;
+}
+.chat-text input {
+    width: 100%;
+    height: 100%;
+    padding: 1.25rem;
+    border-radius: .3125rem;
+    border: .0625rem solid var(--main-color-strong);
+}

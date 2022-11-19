@@ -1,0 +1,28 @@
+/* -----------------
+    CONTEXT-MENU
+----------------- */
+#context-menu {
+    overflow-y: hidden;
+    position: fixed;
+    background-color: var(--lighter-color);
+    border-radius: .3125rem;
+    z-index: 100;
+    transition: height 0.2s linear;
+}
+#context-menu ul {
+    display: block;
+}
+#context-menu li {
+    margin: 0;
+    padding: .4375rem .625rem;
+}
+#context-menu li:hover {
+    background-color: var(--main-color-strong);
+}
+#context-menu a {
+    font-size: .875rem;
+    color: var(--stronger-color);
+}
+#context-menu i {
+    margin-right: .3125rem;
+}

@@ -1,0 +1,13 @@
+:root {
+    --first-body-color: #009688;
+    --second-body-color: #d6dbd8;
+    --main-color-normal: #eaeaea;
+    --main-color-strong: #d6d6d6;
+    --main-color-light: #fafafa;
+    --icon-color: #6b7376;
+    --color-sent: #d5f9ba;
+    --lighter-color: #fff;
+    --stronger-color: #000;
+    --banner-color: #8edafc;
+    --banner-active-color: #0fb3ff;
+}

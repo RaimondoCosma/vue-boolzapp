@@ -1,0 +1,104 @@
+/* -----------------
+    ASIDE
+----------------- */
+aside {
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    background-color: var(--lighter-color);
+}
+.banner {
+    display: flex;
+    padding: .9375rem 1.25rem;
+    height: 5rem;
+    background-color: var(--banner-color);
+}
+.banner .icon-avatar {
+    position: relative;
+    font-size: 1.375rem;
+    background-color: var(--lighter-color);
+    text-align: center;
+    line-height: 3.125rem;
+}
+.banner .icon-avatar::after {
+    content: '';
+    position: absolute;
+    width: 2.1875rem;
+    height: .1875rem;
+    border-radius: .3125rem;
+    background-color: var(--banner-color);
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%) rotateZ(45deg);
+    box-shadow: 0 .1875rem 0 0 var(--lighter-color);
+}
+.banner .icon-avatar a {
+    color: var(--banner-color);
+}
+.banner-text .sub-title  a{
+    font-size: .875rem;
+    color: inherit;
+    font-weight: lighter;
+    text-decoration: underline;
+}
+
+.input {
+    height: 3.125rem;
+    padding: .3125rem;
+    background-color: var(--main-color-light);
+}
+.box-input {
+    display: flex;
+    height: 100%;
+    border-radius: .3125rem;
+    border: 1px solid var(--main-color-strong);
+}
+.input button {
+    color: var(--icon-color);
+    width: 20%;
+    background-color: var(--lighter-color);
+    border: none;
+    border-right: 1px solid var(--main-color-strong);
+    cursor: pointer;
+}
+.input button:hover {
+    background-color: var(--main-color-normal);
+}
+.input input {
+    flex-grow: 1;
+    padding: 0 .625rem;
+    border: none;
+}
+
+.my-contact {
+    overflow-y: auto;
+    flex-grow: 1;
+}
+.my-contact ul {
+    display: flex;
+    flex-direction: column;
+}
+.my-contact li {
+    cursor: default;
+    padding: .3125rem 1.25rem;
+    margin: 0;
+    border-top: .0625rem solid var(--main-color-strong);
+}
+.my-contact li:hover:not(li.active) {
+    background-color: var(--main-color-light);
+}
+.contact {
+    position: relative;
+}
+.contact .last-message {
+    font-size: .875rem;
+    font-weight: lighter;
+}
+.contact-user small{
+    position: absolute;
+    top: .1875rem;
+    right: .1875rem;
+    font-size: .875rem;
+    font-weight: lighter;
+}

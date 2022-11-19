@@ -1,0 +1,48 @@
+/* -----------------
+    COMMONS
+----------------- */
+body {
+    font-family: 'Lato', sans-serif;
+    padding: 1.5625rem 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, var(--first-body-color) 0 20vh, var(--second-body-color) 20vh 100vh);
+}
+#app {
+    position: relative;
+    height: 100%;
+    max-width: 87.5rem;
+    margin: auto;
+}
+a {
+    text-decoration: none;
+    color: var(--icon-color);
+}
+img {
+    display: block;
+    width: 100%;
+}
+input:focus-visible {
+    outline: none;
+}
+ul {
+    display: flex;
+    list-style: none;
+}
+ul li {
+    font-size: 1.25rem;
+    margin-left: 1.25rem;
+}
+.user, .contact {
+    display: flex;
+    align-items: center;
+}
+.access-date {
+    font-size: .875rem;
+    font-weight: lighter
+}
+.active {
+    background-color: var(--main-color-normal);
+}
+.fw-bold {
+    font-weight: bold;
+}
