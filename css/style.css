@@ -81,8 +81,8 @@ header {
     margin-right: .9375rem;
 }
 .contact-icon {
-    width: 3.75rem;
-    height: 3.75rem;
+    min-width: 3.75rem;
+    min-height: 3.75rem;
 }
 
 /* -----------------
