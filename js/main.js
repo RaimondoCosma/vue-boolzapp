@@ -21,7 +21,9 @@ createApp({
             },
             // Variabile di appoggio per nascondere o mostrare le info dei messaggi
             info: false,
-            // Arrey di oggetti contenenti dati degli utenti
+            // Array che contiene la risposta dell'API di chuck
+            ushiroMawashiGeri: [],
+            // Array di oggetti contenenti dati degli utenti
             contacts: [
                 {
                     name: 'Michele',
@@ -219,7 +221,7 @@ createApp({
             setTimeout(() => {
                 const contactNewObjMessage = {
                     date: moment().locale('it').format('l '+'LTS'),
-                    message: 'Forse',
+                    message: this.ushiroMawashiGeri[this.getRndInteger(0, this.ushiroMawashiGeri.length - 1)],
                     status: 'received'
                 };
                 this.contacts[this.activeUser].messages.push(contactNewObjMessage);
@@ -262,9 +264,19 @@ createApp({
         // Funzione per chiudere info messaggi
         closeInfo(){
             this.info = false;
+        },
+        // Funzione che genera numeri random
+        getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
         }
     },
     created() {
-        const result = axios.get('https://api.chucknorris.io/jokes/random');
+        // Uso axios per slavare 50 risposte diverse di Chuck in un array
+        for ( let i = 0; i <= 50; i++ ){
+            axios.get('https://api.chucknorris.io/jokes/random')
+            .then((response) => {
+                this.ushiroMawashiGeri.push(response.data.value)
+            })
+        }
     }
 }).mount('#app')
