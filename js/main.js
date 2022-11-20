@@ -24,6 +24,10 @@ createApp({
             // Array che contiene la risposta dell'API di chuck
             chuck: false,
             ushiroMawashiGeri: [],
+            // Array di emoji
+            emojiVisible: false,
+            activeEmoji: 0,
+            emoji: ['🙂','😀','😄','😅','😉','😊','😇','🥳','😍','😜','🤭','🤔','😡','🤬','💩','🤡'],
             // Array di oggetti contenenti dati degli utenti
             contacts: [
                 {
@@ -293,6 +297,22 @@ createApp({
         formatData(data) {
             return moment(data, "DD/MM/YYYY, hh:mm:ss").fromNow();
         },
+        // Seleziona emoji cliccata e la stampa nel messaggio
+        addEmoji(i) {
+            this.activeEmoji = i;
+            this.myMessage += this.activeEmoji; 
+            this.closeEmoji();
+        },
+        // Chiude div emoji
+        closeEmoji() {
+            this.emojiVisible = false;
+        },
+        // Funzione per lo scroll automativo verso il basso
+        scrollToBottom() {
+            const chatRoom = document.querySelector('.col-messages');
+            let scrollHeight = chatRoom.scrollHeight;
+            chatRoom.scrollTop = scrollHeight;
+        }
     },
     created() {
         // Formatto l'ora nel formato italiano
@@ -304,6 +324,14 @@ createApp({
                 this.ushiroMawashiGeri.push(response.data.value)
             })
         }
+    },
+    // Richiamo la funzione al mounted nel fossero presenti tanti messaggi per visualizzare l'ultimo
+    mounted() {
+        this.scrollToBottom();
+    },
+    // La richiamo nell'update per aggiornare lo sroll ad ogni cambiamento
+    updated() {
+        this.scrollToBottom();
     }
 }).mount('#app')
 
