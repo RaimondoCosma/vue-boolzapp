@@ -25,12 +25,35 @@
     border-radius: .9375rem;
 }
 .received {
+    position: relative;
     background-color: var(--lighter-color);
     align-self: flex-start;
 }
+.received::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -12px;
+    width: 30px;
+    height: 20px;
+    background-image: linear-gradient(to left bottom, var(--lighter-color) 50%, transparent 50%);
+    border-radius: .5rem;
+}
 .sent {
+    position: relative;
     background-color: var(--color-sent);
     align-self: flex-end;
+}
+.sent::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -12px;
+    width: 30px;
+    height: 20px;
+    background-image: linear-gradient(to right bottom, var(--color-sent) 50%, transparent 50%);
+    border-radius: .5rem;
+
 }
 .col-messages small {
     color: var(--main-color-strong);
