@@ -41,7 +41,7 @@ ul li {
     font-weight: lighter
 }
 .active {
-    background-color: var(--main-color-normal);
+    background-color: var(--main-color-strong);
 }
 .fw-bold {
     font-weight: bold;

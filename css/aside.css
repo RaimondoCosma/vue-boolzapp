@@ -42,7 +42,6 @@ aside {
     font-weight: lighter;
     text-decoration: underline;
 }
-
 .input {
     height: 3.125rem;
     padding: .3125rem;
@@ -60,6 +59,7 @@ aside {
     background-color: var(--lighter-color);
     border: none;
     border-right: 1px solid var(--main-color-strong);
+    border-radius: .3125rem 0 0 .3125rem;
     cursor: pointer;
 }
 .input button:hover {
@@ -69,8 +69,8 @@ aside {
     flex-grow: 1;
     padding: 0 .625rem;
     border: none;
+    border-radius: 0 .3125rem .3125rem 0;
 }
-
 .my-contact {
     overflow-y: auto;
     flex-grow: 1;
@@ -81,7 +81,7 @@ aside {
 }
 .my-contact li {
     cursor: default;
-    padding: .3125rem 1.25rem;
+    padding: .4375rem 1.25rem;
     margin: 0;
     border-top: .0625rem solid var(--main-color-strong);
 }

@@ -217,7 +217,7 @@ createApp({
         // Funzione per mandare messaggi e riceverne uno dopo 2 secondi
         sendMessage(){
             const myNewObjMessage = {
-                date: moment().locale('it').format('l '+'LTS'),
+                date: moment().format('l '+'LTS'),
                 message: this.myMessage,
                 status: 'sent'
             }
@@ -230,7 +230,7 @@ createApp({
             if ( this.chuck === true ){
                 setTimeout(() => {
                     const contactNewObjMessage = {
-                        date: moment().locale('it').format('l '+'LTS'),
+                        date: moment().format('l '+'LTS'),
                         message: this.ushiroMawashiGeri[this.getRndInteger(0, this.ushiroMawashiGeri.length - 1)],
                         status: 'received'
                     };
@@ -334,5 +334,3 @@ createApp({
         this.scrollToBottom();
     }
 }).mount('#app')
-
-const app = document.querySelector('.col-messages');
