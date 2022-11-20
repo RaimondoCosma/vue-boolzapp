@@ -4,8 +4,11 @@
 #context-menu {
     overflow-y: hidden;
     position: fixed;
+    width: 10rem;
     background-color: var(--lighter-color);
+    border: .0625rem solid var(--main-color-strong);
     border-radius: .3125rem;
+    box-shadow: 3px 3px 7px 0px;
     z-index: 100;
     transition: height 0.2s linear;
 }
@@ -20,8 +23,13 @@
     background-color: var(--main-color-strong);
 }
 #context-menu a {
+    display: flex;
     font-size: .875rem;
     color: var(--stronger-color);
+}
+#context-menu a div {
+    flex-grow: 1;
+    text-align: center;
 }
 #context-menu i {
     margin-right: .3125rem;

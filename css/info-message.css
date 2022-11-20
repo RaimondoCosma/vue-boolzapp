@@ -9,7 +9,9 @@
     background-color: var(--lighter-color);
     box-shadow: 5px 5px 10px 0px var(--main-color-strong);   
     padding: .625rem;
+    border: .0625rem solid var(--main-color-strong);
     border-radius: .625rem;
+    box-shadow: 3px 3px 7px 0px;
 }
 .close-window {
     text-align: right;

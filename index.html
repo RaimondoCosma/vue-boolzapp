@@ -137,8 +137,8 @@
         <!-- Context menu -->
         <div id="context-menu" :style="`top: ${styleContextMenu.top}; left: ${styleContextMenu.left}; opacity: ${styleContextMenu.opacity}; height: ${styleContextMenu.height}`">
             <ul>
-                <li @click.prevent="showInfo"><a href="#"><i class="fa-solid fa-circle-info"></i>Message Info</a></li>
-                <li @click="deleteMessage(index)"><a href="#"><i class="fa-solid fa-trash-can"></i>Delete Message</a></li>
+                <li @click.prevent="showInfo"><a href="#"><i class="fa-solid fa-circle-info"></i><div>Message Info</div></a></li>
+                <li @click="deleteMessage(index)"><a href="#"><i class="fa-solid fa-trash-can"></i><div>Delete Message</div></a></li>
             </ul>
         </div>
         <!-- /Context menu -->

@@ -260,9 +260,9 @@ createApp({
             this.hideTheContextMenu();
             this.closeInfo();
             this.styleContextMenu.top = `${e.clientY}px`;
-            this.styleContextMenu.left = `${e.clientX}px`;
+            this.styleContextMenu.left = `calc(${e.clientX}px - 160.000px)`;
             this.styleContextMenu.opacity = 1;
-            this.styleContextMenu.height = `76px`;
+            this.styleContextMenu.height = 'auto';
         },
         // Funzione che nasconde il contextmenu
         hideTheContextMenu(e){
