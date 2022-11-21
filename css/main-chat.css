@@ -8,6 +8,7 @@
     flex-grow: 1;
 }
 .col-messages {
+    position: relative;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -15,6 +16,23 @@
     background-image: url('../img/mine.jpg');
     padding: 3.125rem 5.625rem;
     cursor: default;
+}
+#welcome-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(to left bottom, #030b16, #212041, #5b265f, #9f1c63, #da1d4b);
+    color: white;
+    font-size: 3.125rem;
+    z-index: 999;
+}
+.hidden {
+    display: none !important;
 }
 .sent, .received {
     position: relative;

@@ -10,7 +10,7 @@
     border-radius: .3125rem;
     box-shadow: 3px 3px 7px 0px;
     z-index: 100;
-    transition: height 0.2s linear;
+    transition: height 0.2s ease-out;
 }
 #context-menu ul {
     display: block;

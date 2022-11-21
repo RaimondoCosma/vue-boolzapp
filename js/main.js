@@ -28,6 +28,8 @@ createApp({
             emojiVisible: false,
             activeEmoji: 0,
             emoji: ['🙂','😀','😄','😅','😉','😊','😇','🥳','😍','😜','🤭','🤔','😡','🤬','💩','🤡'],
+            // Funzione messaggio di welcome
+            welcome: true,
             // Array di oggetti contenenti dati degli utenti
             contacts: [
                 {
@@ -195,6 +197,10 @@ createApp({
         }
     },
     methods: {
+        // Funzione eliminazione messaggio benvenuto
+        hideWelcome() {
+            this.welcome = false;
+        },
         // Funzione utile a cambiare contatto al click
         changeUser(i) {
             this.activeUser = i;
@@ -262,7 +268,7 @@ createApp({
             this.styleContextMenu.top = `${e.clientY}px`;
             this.styleContextMenu.left = `calc(${e.clientX}px - 160.000px)`;
             this.styleContextMenu.opacity = 1;
-            this.styleContextMenu.height = 'auto';
+            this.styleContextMenu.height = '64px';
         },
         // Funzione che nasconde il contextmenu
         hideTheContextMenu(e){

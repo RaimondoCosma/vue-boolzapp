@@ -94,7 +94,7 @@
                 </div>
                 <!-- /Search bar Input text-->
                 <!-- My-contact -->
-                <div class="my-contact">
+                <div class="my-contact" @click="hideWelcome">
                     <ul @click="emptyMessage">
                         <li v-for="(contact, index) in contacts" @click="changeUser(index)" :class="{active: index === activeUser}" v-show="contact.visible">
                             <div class="contact">
@@ -117,8 +117,13 @@
             <div class="main-chat">
                 <div class="col-messages" @click="closeEmoji">
                     <div v-for="(message, index) in contacts[activeUser].messages" :class="message.status" @contextmenu.prevent="showTheContextMenu" @contextmenu="takeIndexMessage(index)">
-                        <span>{{message.message}}</span>
-                        <small>{{messageTime(message.date)}}</small>
+                        <div>
+                            <span>{{message.message}}</span>
+                            <small>{{messageTime(message.date)}}</small>
+                        </div>
+                    </div>
+                    <div id="welcome-message" :class="{hidden: welcome === false}">
+                        <h2>Welcome to Boolzap App</h2>
                     </div>
                 </div>
                 <div class="col-text">
@@ -128,7 +133,7 @@
                 </div>
                 <span class="test-chuck" @click="chuckActive" :class="{'chat-active': this.chuck === true}">Cliccami per la chat<br>di Chuck Norris</span>
                 <div id="emoji" :class="{'show-emoji': emojiVisible === true}">
-                    <div class="emoticon" v-for="(emoticon, index) in emoji" @click="addEmoji(emoticon)">{{emoticon}}</div>
+                    <div class="emoticon" v-for="emoticon in emoji" @click="addEmoji(emoticon)">{{emoticon}}</div>
                 </div>
             </div>
             <!-- /Main chat with contacts -->
