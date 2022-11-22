@@ -7,6 +7,10 @@ aside {
     flex-direction: column;
     width: 35%;
     background-color: var(--lighter-color);
+    filter: blur(3px);
+}
+.remove-blur {
+    filter: none;
 }
 .banner {
     display: flex;

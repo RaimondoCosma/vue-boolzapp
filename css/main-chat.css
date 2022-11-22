@@ -10,6 +10,7 @@
 .col-messages {
     position: relative;
     overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -17,7 +18,10 @@
     padding: 3.125rem 5.625rem;
     cursor: default;
 }
-#welcome-message {
+/* --------------------
+    SCHERMATA WELCOME
+-------------------- */
+#vertical-welcome-message {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,15 +30,72 @@
     right: 0;
     left: 0;
     height: 100%;
-    background-image: linear-gradient(to left bottom, #030b16, #212041, #5b265f, #9f1c63, #da1d4b);
     color: white;
     font-size: 3.125rem;
+    z-index: 998;
+    transition: top 0.5s ease-out 1s;
+}
+#left-welcome-message, #right-welcome-message {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
     z-index: 999;
-    transition: top 0.4s ease-out;
+}
+#left-welcome-message {
+    left: 0;
+    background-image: linear-gradient(to right, #030b16, #212041, #5b265f, #9f1c63, #da1d4b);
+    transition: left 0.6s cubic-bezier(.84,0,.37,.99) 0.5s;
+}
+#right-welcome-message {
+    right: 0;
+    background-image: linear-gradient(to left, #030b16, #212041, #5b265f, #9f1c63, #da1d4b);
+    transition: right 0.6s cubic-bezier(.84,0,.37,.99) 0.5s;
+}
+.circle-key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    height: 9.375rem;
+    width: 9.375rem;
+    border-radius: 50%;
+    background-color: #212041;
+    box-shadow: 0px 0px 10px 6px #000000;
+    z-index: 1000;
+    transition: transform 0.5s ease-in-out;
+}
+.circle-key button {
+    color: white;
+    font-size: 1.875rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+/* --------------------
+    ANIMAZIONE WELCOME
+-------------------- */
+.rotate {
+    transform: translate(-50%, -50%) rotateZ(3turn);
+}
+.left-open {
+    left: -60% !important;
+    transition-delay: 0.4s;
+}
+.right-open {
+    right: -50% !important;
+    transition-delay: 0.4s;
 }
 .hidden {
     top: -100% !important;
 }
+/* --------------------
+    FINE ANIMAZIONE WELCOME
+-------------------- */
+
 .sent, .received {
     position: relative;
     font-size: .875rem;
@@ -116,7 +177,14 @@
     color: blue;
 }
 .smile a, .microphone a {
+    display: inline-block;
+    padding: .3125rem 0;
+    border-radius: .3125rem;
+    width: 30%;
     color: var(--icon-color);
+}
+.smile a:hover, .microphone a:hover {
+    background-color: var(--main-color-strong);
 }
 .chat-text {
     flex-grow: 1;

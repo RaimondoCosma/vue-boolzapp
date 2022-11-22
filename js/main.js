@@ -198,8 +198,8 @@ createApp({
     },
     methods: {
         // Funzione eliminazione messaggio benvenuto
-        hideWelcome() {
-            this.welcome = false;
+        toggleWelcome() {
+            this.welcome = !this.welcome;
         },
         // Funzione utile a cambiare contatto al click
         changeUser(i) {

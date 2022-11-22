@@ -5,6 +5,7 @@ header {
     display: flex;
     height: 4.375rem;
     background-color: var(--main-color-normal);
+    filter: blur(3px);
 }
 .col-my-user, .col-other-user {
     display: flex;
@@ -18,6 +19,13 @@ header {
 }
 .col-other-user {
     flex-grow: 1;
+}
+.icons-nav ul li {
+    padding: .3125rem;
+}
+.icons-nav ul li:hover {
+    border-radius: .3125rem;
+    background-color: var(--main-color-strong);
 }
 .icon-avatar, .contact-icon {
     width: 3.125rem;

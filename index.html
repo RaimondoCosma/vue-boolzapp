@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzapp</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/mobile-logo.png">
+    <!-- /Favicon -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- /Font Awesome -->
@@ -30,14 +33,14 @@
 <body>
     <div id="app">
         <!-- Header -->
-        <header @click="[hideTheContextMenu, closeInfo]">
+        <header @click="[hideTheContextMenu, closeInfo]" :class="welcome === false ? 'remove-blur' : ''">
             <!-- Header left -->
             <div class="col-my-user">
                 <div class="user">
                     <div class="icon-avatar">
-                        <a href="#"><img src="img/avatar_io.jpg" alt="my-avatar"></a>
+                        <a href="#"><img src="img/avatar.jpg" alt="my-avatar"></a>
                     </div>
-                    <div class="name">Sofia</div>
+                    <div class="name">Raimondo Cosma</div>
                 </div>
                 <div class="icons-nav">
                     <ul>
@@ -62,7 +65,7 @@
                 <div class="icons-nav">
                     <ul>
                         <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                        <li><a href="#"><i class="fa-solid fa-paperclip"></i></a></li>
+                        <li @click="toggleWelcome"><a href="#"><i class="fa-solid fa-key"></i></a></li>
                         <li><a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
                     </ul>
                 </div>
@@ -73,7 +76,7 @@
         <!-- Main -->
         <main @click="[hideTheContextMenu, closeInfo]">
             <!-- Aside -->
-            <aside>
+            <aside :class="welcome === false ? 'remove-blur' : ''">
                 <!-- Banner -->
                 <div class="banner">
                     <div class="icon-avatar">
@@ -94,7 +97,7 @@
                 </div>
                 <!-- /Search bar Input text-->
                 <!-- My-contact -->
-                <div class="my-contact" @click="hideWelcome">
+                <div class="my-contact" @click="welcome = false">
                     <ul @click="emptyMessage">
                         <li v-for="(contact, index) in contacts" @click="changeUser(index)" :class="{active: index === activeUser}" v-show="contact.visible">
                             <div class="contact">
@@ -122,9 +125,13 @@
                             <small>{{messageTime(message.date)}}</small>
                         </div>
                     </div>
-                    <div id="welcome-message" :class="{hidden: welcome === false}">
-                        <h2>Welcome to Boolzap App</h2>
+                    <!-- Welcome message -->
+                    <div id="vertical-welcome-message" :class="welcome === false ? 'hidden' : ''"><img src="img/gate.png" alt="gate"></div>
+                    <div id="right-welcome-message" :class="welcome === false ? 'right-open' : ''"></div>
+                    <div id="left-welcome-message" :class="welcome === false ? 'left-open' : ''">
+                        <div class="circle-key" :class="{rotate: welcome === false}"><button @click="toggleWelcome">Unlock Your Chat</button></div>
                     </div>
+                    <!-- /Welcome message -->
                 </div>
                 <div class="col-text">
                     <div class="smile" @click="emojiVisible=!emojiVisible"><a href="#"><i class="fa-regular fa-face-smile" :class="{'icon-active': emojiVisible === true}"></i></a></div>
