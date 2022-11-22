@@ -44,12 +44,12 @@
 }
 #left-welcome-message {
     left: 0;
-    background-image: linear-gradient(to right, #030b16, #212041, #5b265f, #9f1c63, #da1d4b);
+    background-image: linear-gradient(to right, #030b16, #212041, #5b265f, #9f1c63, #da1d4b, rgb(255, 176, 79));
     transition: left 0.6s cubic-bezier(.84,0,.37,.99) 0.5s;
 }
 #right-welcome-message {
     right: 0;
-    background-image: linear-gradient(to left, #030b16, #212041, #5b265f, #9f1c63, #da1d4b);
+    background-image: linear-gradient(to left, #030b16, #212041, #5b265f, #9f1c63, #da1d4b, rgb(255, 176, 79));
     transition: right 0.6s cubic-bezier(.84,0,.37,.99) 0.5s;
 }
 .circle-key {
